@@ -1,0 +1,47 @@
+{
+  "name": "@ianwalter/history-router",
+  "version": "0.0.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "dist/history-router.js",
+  "browser": "dist/history-router.browser.js",
+  "scripts": {
+    "lint": "eslint index.js",
+    "pretest": "dist",
+    "test": "bff"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs3": "^7.4.4",
+    "@ianwalter/router": "^1.1.0"
+  },
+  "devDependencies": {
+    "@ianwalter/babel-preset-lib": "^2.0.2",
+    "@ianwalter/bff": "^5.0.0",
+    "@ianwalter/dist": "^4.0.0",
+    "@ianwalter/eslint-config": "^1.1.2",
+    "@ianwalter/renovate-config": "^1.1.0",
+    "@ianwalter/test-server": "^1.4.3",
+    "common-tags": "^1.8.0",
+    "np": "^5.0.1"
+  },
+  "babel": {
+    "presets": [
+      "@ianwalter/lib"
+    ]
+  },
+  "bff": {
+    "plugins": [
+      "tests/config"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@ianwalter"
+    ]
+  },
+  "renovate": {
+    "extends": [
+      "@ianwalter"
+    ]
+  }
+}
