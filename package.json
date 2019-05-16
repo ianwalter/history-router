@@ -1,6 +1,6 @@
 {
   "name": "@ianwalter/history-router",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "SEE LICENSE IN LICENSE",
   "main": "dist/history-router.js",
   "browser": "dist/history-router.browser.js",
