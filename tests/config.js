@@ -18,13 +18,13 @@ module.exports = {
 
             <ul>
               <li>
-                <a id="aboutLink" href="/about">
-                  About
+                <a id="homeLink" href="/">
+                  Home
                 </a>
               </li>
               <li>
-                <a id="contactLink" href="/contact">
-                  Contact
+                <a id="aboutLink" href="/about">
+                  About
                 </a>
               </li>
             </ul>

@@ -35,15 +35,16 @@ export class HistoryRouter extends Router {
 export const router = new HistoryRouter()
 
 export const go = (url, title, data) => {
-  if (typeof url === 'string') {
-    //
-    router.go(url, title, data)
-  } else {
-    //
-    const evt = url
-    evt.preventDefault()
+  if (typeof url !== 'string') {
+    // If url is not a string, it's most likely a click event on an anchor
+    // element and calling preventDefault is necessary to tell the browser not
+    // to load the target page as it would normally.
+    url.preventDefault()
 
-    //
-    router.go(evt.target.getAttribute('href'))
+    // Get the event target's href value and use it as the URL.
+    url = url.target.getAttribute('href')
   }
+
+  // Perform routing through the local router instance.
+  router.go(url, title, data)
 }
