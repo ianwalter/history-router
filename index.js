@@ -1,5 +1,7 @@
 import Router from '@ianwalter/router'
 
+const $window = typeof window !== 'undefined' ? window : undefined
+
 export class HistoryRouter extends Router {
   constructor (options = {}) {
     // Set the router instance's base URL.
@@ -17,13 +19,14 @@ export class HistoryRouter extends Router {
     }
 
     // Update the browser's history with the URL that's being navigated to.
-    if (url) {
-      window.history.pushState(data, title, url)
+    if ($window && url) {
+      $window.history.pushState(data, title, url)
+      url = $window.location.href
     }
 
     // Attempt to match and execute any route handler assocaited with the URL
     // that's being navigated to.
-    this.match({ request: { url: window.location.href } })
+    this.match({ request: { url } })
 
     // Execute the after hook after navigation if it's defined.
     if (this.after) {
