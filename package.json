@@ -5,7 +5,7 @@
   "main": "dist/history-router.js",
   "browser": "dist/history-router.browser.js",
   "scripts": {
-    "lint": "eslint index.js",
+    "lint": "eslint index.js tests",
     "pretest": "dist",
     "test": "bff"
   },
