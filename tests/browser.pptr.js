@@ -14,3 +14,14 @@ test('browser go event', ({ expect, testServerUrl }) => {
   aboutLink.click()
   expect(window.location.href).toBe(`${testServerUrl}/about`)
 })
+
+test('browser back', ({ pass }) => {
+  return new Promise(resolve => {
+    router.add('/', () => {
+      pass()
+      resolve()
+    })
+    router.add('/about', () => window.history.back())
+    go('/about')
+  })
+})
