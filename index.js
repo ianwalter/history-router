@@ -10,27 +10,44 @@ export class HistoryRouter extends Router {
     // Set the before and after hooks.
     this.before = options.before
     this.after = options.after
+
+    // TODO:
+    this.listener = async (evt, url = $window.location.href) => {
+      // Execute the before hook before navigation if it's defined.
+      if (this.before) {
+        await this.before(evt, url)
+      }
+
+      // Attempt to match and execute any route handler assocaited with the URL
+      // that's being navigated to.
+      this.match({ request: { url } })
+
+      // Execute the after hook after navigation if it's defined.
+      if (this.after) {
+        await this.after(evt, url)
+      }
+    }
+
+    // TODO:
+    if ($window) {
+      $window.addEventListener('popstate', this.listener)
+    }
   }
 
   async go (url, title, data) {
-    // Execute the before hook before navigation if it's defined.
-    if (this.before) {
-      await this.before(url, title, data)
-    }
-
-    // Update the browser's history with the URL that's being navigated to.
-    if ($window && url) {
+    if ($window) {
+      // Update the browser's history with the URL that's being navigated to.
       $window.history.pushState(data, title, url)
       url = $window.location.href
     }
 
-    // Attempt to match and execute any route handler assocaited with the URL
-    // that's being navigated to.
-    this.match({ request: { url } })
+    // TODO:
+    this.listener({ state: data }, url)
+  }
 
-    // Execute the after hook after navigation if it's defined.
-    if (this.after) {
-      await this.after(url, title, data)
+  stopListening () {
+    if ($window) {
+      $window.removeEventListener('popstate', this.listener)
     }
   }
 }

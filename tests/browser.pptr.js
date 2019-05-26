@@ -14,3 +14,9 @@ test('browser go event', ({ expect, testServerUrl }) => {
   aboutLink.click()
   expect(window.location.href).toBe(`${testServerUrl}/about`)
 })
+
+test('browser back', ({ pass }) => {
+  router.add('/', () => pass())
+  router.add('/about', () => setTimeout(() => window.history.back(), 1))
+  go('/about')
+})
