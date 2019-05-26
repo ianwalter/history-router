@@ -16,7 +16,12 @@ test('browser go event', ({ expect, testServerUrl }) => {
 })
 
 test('browser back', ({ pass }) => {
-  router.add('/', () => pass())
-  router.add('/about', () => setTimeout(() => window.history.back(), 1))
-  go('/about')
+  return new Promise(resolve => {
+    router.add('/', () => {
+      pass()
+      resolve()
+    })
+    router.add('/about', () => window.history.back())
+    go('/about')
+  })
 })

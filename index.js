@@ -11,24 +11,26 @@ export class HistoryRouter extends Router {
     this.before = options.before
     this.after = options.after
 
-    // TODO:
     this.listener = async (evt, url = $window.location.href) => {
-      // Execute the before hook before navigation if it's defined.
+      // If it's defined, call the before hook before a matching handler is
+      // called.
       if (this.before) {
         await this.before(evt, url)
       }
 
-      // Attempt to match and execute any route handler assocaited with the URL
+      // Attempt to match and call any route handler assocaited with the URL
       // that's being navigated to.
       this.match({ request: { url } })
 
-      // Execute the after hook after navigation if it's defined.
+      // If it's defined, call the after hook after a matching handler is
+      // called.
       if (this.after) {
         await this.after(evt, url)
       }
     }
 
-    // TODO:
+    // Add a popstate listener to call hooks and route handlers on back and
+    // forward browser actions.
     if ($window) {
       $window.addEventListener('popstate', this.listener)
     }
@@ -41,7 +43,8 @@ export class HistoryRouter extends Router {
       url = $window.location.href
     }
 
-    // TODO:
+    // Call the popstate listener manually to call hooks and matching route
+    // handlers.
     this.listener({ state: data }, url)
   }
 
