@@ -21,7 +21,7 @@
     "@ianwalter/renovate-config": "^1.1.0",
     "@ianwalter/test-server": "^1.4.3",
     "common-tags": "^1.8.0",
-    "np": "^5.0.2"
+    "np": "^5.0.3"
   },
   "babel": {
     "presets": [
