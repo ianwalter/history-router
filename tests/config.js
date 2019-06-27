@@ -35,7 +35,7 @@ module.exports = {
     })
     context.testContext.testServerUrl = testServer.url
   },
-  async beforeEach ({ page, testContext }) {
+  async beforeEach (file, { page, testContext }) {
     if (page) {
       await page.goto(testContext.testServerUrl)
     }

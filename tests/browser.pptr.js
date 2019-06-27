@@ -1,7 +1,7 @@
-import { test } from '@ianwalter/bff'
+import { test } from '@ianwalter/bff-puppeteer'
 import { go, router } from '..'
 
-test('browser go call', ({ expect, testServerUrl }) => {
+test('browser go call', async ({ expect, testServerUrl }) => {
   router.add('/about', () => {
     expect(window.location.href).toBe(`${testServerUrl}/about`)
   })

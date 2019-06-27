@@ -36,7 +36,7 @@ export class HistoryRouter extends Router {
     }
   }
 
-  async go (url, title, data) {
+  go (url, title, data) {
     if ($window) {
       // Update the browser's history with the URL that's being navigated to.
       $window.history.pushState(data, title, url)
@@ -45,7 +45,7 @@ export class HistoryRouter extends Router {
 
     // Call the popstate listener manually to call hooks and matching route
     // handlers.
-    this.listener({ state: data }, url)
+    return this.listener({ state: data }, url)
   }
 
   stopListening () {
@@ -69,5 +69,5 @@ export const go = (url, title, data) => {
   }
 
   // Perform routing through the local router instance.
-  router.go(url, title, data)
+  return router.go(url, title, data)
 }

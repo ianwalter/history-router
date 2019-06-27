@@ -13,7 +13,8 @@
     "@ianwalter/router": "^1.1.0"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^5.2.1",
+    "@ianwalter/bff": "^6.3.1",
+    "@ianwalter/bff-puppeteer": "^1.2.0",
     "@ianwalter/dist": "^5.0.1",
     "@ianwalter/eslint-config": "^2.0.1",
     "@ianwalter/renovate-config": "^1.1.0",
@@ -23,6 +24,7 @@
   },
   "bff": {
     "plugins": [
+      "@ianwalter/bff-puppeteer",
       "tests/config"
     ]
   },
