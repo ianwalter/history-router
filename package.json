@@ -10,11 +10,9 @@
     "test": "bff"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "^7.4.5",
     "@ianwalter/router": "^1.1.0"
   },
   "devDependencies": {
-    "@ianwalter/babel-preset-lib": "^2.0.2",
     "@ianwalter/bff": "^5.2.1",
     "@ianwalter/dist": "^5.0.1",
     "@ianwalter/eslint-config": "^2.0.1",
@@ -22,11 +20,6 @@
     "@ianwalter/test-server": "^1.4.3",
     "common-tags": "^1.8.0",
     "np": "^5.0.3"
-  },
-  "babel": {
-    "presets": [
-      "@ianwalter/lib"
-    ]
   },
   "bff": {
     "plugins": [
