@@ -35,7 +35,7 @@ export class HistoryRouter extends Router {
       $window.addEventListener('popstate', this.listener)
     }
   }
-  
+
   notFound (callback) {
     this.callback = callback
   }
