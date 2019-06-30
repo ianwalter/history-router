@@ -29,7 +29,10 @@ test('browser back', ({ pass }) => {
 test('browser notFound', ({ fail, pass }) => {
   return new Promise(resolve => {
     router.add('/about', () => fail())
-    router.notFound(() => pass())
+    router.notFound(() => {
+      pass()
+      resolve()
+    })
     go('/aboot')
   })
 })
