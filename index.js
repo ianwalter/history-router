@@ -36,7 +36,7 @@ export class HistoryRouter extends Router {
     }
   }
   
-  all (callback) {
+  notFound (callback) {
     this.callback = callback
   }
 
