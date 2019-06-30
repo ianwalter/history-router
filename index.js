@@ -20,7 +20,7 @@ export class HistoryRouter extends Router {
 
       // Attempt to match and call any route handler assocaited with the URL
       // that's being navigated to.
-      this.match({ request: { url } })
+      this.match({ request: { url } }, this.callback)
 
       // If it's defined, call the after hook after a matching handler is
       // called.
@@ -34,6 +34,10 @@ export class HistoryRouter extends Router {
     if ($window) {
       $window.addEventListener('popstate', this.listener)
     }
+  }
+  
+  all (callback) {
+    this.callback = callback
   }
 
   go (url, title, data) {
