@@ -1,5 +1,5 @@
 import { test } from '@ianwalter/bff-puppeteer'
-import { go, router } from '..'
+import { go, router, HistoryRouter } from '..'
 
 test('browser go call', async ({ expect, testServerUrl }) => {
   router.add('/about', () => {
@@ -35,4 +35,25 @@ test('browser notFound', ({ fail, pass }) => {
     })
     go('/aboot')
   })
+})
+
+test('browser before', async ({ expect }) => {
+  let name
+  const router = new HistoryRouter({
+    before () {
+      return new Promise(resolve => {
+        setTimeout(
+          () => {
+            name = 'Do You Love Her Now'
+            resolve()
+          },
+          1000
+        )
+      })
+    }
+  })
+  router.add('/about', () => {
+    expect(name).toBe('Do You Love Her Now')
+  })
+  await router.go('/about')
 })

@@ -5,7 +5,7 @@ const $window = typeof window !== 'undefined' ? window : undefined
 export class HistoryRouter extends Router {
   constructor (options = {}) {
     // Set the router instance's base URL.
-    super(options.baseUrl)
+    super($window ? $window.location.origin : options.baseUrl)
 
     // Set the before and after hooks.
     this.before = options.before
@@ -20,7 +20,7 @@ export class HistoryRouter extends Router {
 
       // Attempt to match and call any route handler assocaited with the URL
       // that's being navigated to.
-      this.match({ request: { url } }, this.callback)
+      await this.match({ request: { url } }, this.callback)
 
       // If it's defined, call the after hook after a matching handler is
       // called.
@@ -40,7 +40,7 @@ export class HistoryRouter extends Router {
     this.callback = callback
   }
 
-  go (url, title, data) {
+  async go (url, title, data) {
     if ($window) {
       // Update the browser's history with the URL that's being navigated to.
       $window.history.pushState(data, title, url)
@@ -61,8 +61,8 @@ export class HistoryRouter extends Router {
 
 export const router = new HistoryRouter()
 
-export const go = (url, title, data) => {
-  if (typeof url !== 'string') {
+export const go = async (url, title, data) => {
+  if (url && typeof url !== 'string') {
     // If url is not a string, it's most likely a click event on an anchor
     // element and calling preventDefault is necessary to tell the browser not
     // to load the target page as it would normally.
