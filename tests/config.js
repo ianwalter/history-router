@@ -1,11 +1,11 @@
-const createTestServer = require('@ianwalter/test-server')
+const { createKoaServer } = require('@ianwalter/test-server')
 const { source } = require('common-tags')
 
 let testServer
 
 module.exports = {
   async before (context) {
-    testServer = await createTestServer()
+    testServer = await createKoaServer()
     testServer.use(ctx => {
       ctx.body = source`
         <html>
