@@ -10,7 +10,7 @@
     "test": "bff"
   },
   "dependencies": {
-    "@ianwalter/router": "^1.3.0"
+    "@ianwalter/router": "^2.0.2"
   },
   "devDependencies": {
     "@ianwalter/bff": "^7.0.0",
