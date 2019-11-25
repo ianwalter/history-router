@@ -9,6 +9,10 @@
     "pretest": "dist",
     "test": "bff"
   },
+  "author": {
+    "name": "Ian Walter",
+    "url": "https://ianwalter.dev"
+  },
   "dependencies": {
     "@ianwalter/router": "^2.0.2"
   },
