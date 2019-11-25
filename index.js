@@ -3,7 +3,7 @@ import Router from '@ianwalter/router'
 const $window = typeof window !== 'undefined' ? window : undefined
 
 export class HistoryRouter extends Router {
-  constructor (options = {}) {
+  constructor (options = { baseUrl: 'http://localhost' }) {
     // Set the router instance's base URL.
     super($window ? $window.location.origin : options.baseUrl)
 
