@@ -22,6 +22,7 @@ test('browser back', ({ pass }) => {
       resolve()
     })
     router.add('/about', () => window.history.back())
+    go('/')
     go('/about')
   })
 })
