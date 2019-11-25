@@ -7,26 +7,10 @@ export class HistoryRouter extends Router {
     // Set the router instance's base URL.
     super($window ? $window.location.origin : options.baseUrl)
 
-    // Set the before and after hooks.
-    this.before = options.before
-    this.after = options.after
-
-    this.listener = async (evt, url = $window.location.href) => {
-      // If it's defined, call the before hook before a matching handler is
-      // called.
-      if (this.before) {
-        await this.before(evt, url)
-      }
-
-      // Attempt to match and call any route handler assocaited with the URL
+    this.listener = async ctx => {
+      // Attempt to match and call any route handler associated with the URL
       // that's being navigated to.
-      await this.match({ request: { url } }, this.callback)
-
-      // If it's defined, call the after hook after a matching handler is
-      // called.
-      if (this.after) {
-        await this.after(evt, url)
-      }
+      return this.match(ctx, this.fallback)
     }
 
     // Add a popstate listener to call hooks and route handlers on back and
@@ -36,20 +20,22 @@ export class HistoryRouter extends Router {
     }
   }
 
-  notFound (callback) {
-    this.callback = callback
+  notFound (fallback) {
+    this.fallback = fallback
   }
 
-  async go (url, title, data) {
+  async go (url, ctx = {}) {
     if ($window) {
       // Update the browser's history with the URL that's being navigated to.
-      $window.history.pushState(data, title, url)
-      url = $window.location.href
+      $window.history.pushState(ctx, ctx.title, url)
+      ctx.url = $window.location.href
+    } else {
+      ctx.url = url
     }
 
     // Call the popstate listener manually to call hooks and matching route
     // handlers.
-    return this.listener({ state: data }, url)
+    return this.listener(ctx)
   }
 
   stopListening () {
@@ -61,9 +47,9 @@ export class HistoryRouter extends Router {
 
 export const router = new HistoryRouter()
 
-export const go = async (url, title, data) => {
+export const go = async (url, ctx) => {
   if (url && typeof url !== 'string') {
-    // If url is not a string, it's most likely a click event on an anchor
+    // If URL is not a string, it's most likely a click event on an anchor
     // element and calling preventDefault is necessary to tell the browser not
     // to load the target page as it would normally.
     url.preventDefault()
@@ -73,5 +59,5 @@ export const go = async (url, title, data) => {
   }
 
   // Perform routing through the local router instance.
-  return router.go(url, title, data)
+  return router.go(url, ctx)
 }

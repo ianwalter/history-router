@@ -37,23 +37,18 @@ test('browser notFound', ({ fail, pass }) => {
   })
 })
 
-test('browser before', async ({ expect }) => {
+test('browser multiple middleware', async ({ expect }) => {
   let name
-  const router = new HistoryRouter({
-    before () {
-      return new Promise(resolve => {
-        setTimeout(
-          () => {
-            name = 'Do You Love Her Now'
-            resolve()
-          },
-          1000
-        )
-      })
-    }
-  })
-  router.add('/about', () => {
-    expect(name).toBe('Do You Love Her Now')
-  })
+  router.add(
+    '/about',
+    () => new Promise(resolve => setTimeout(
+      () => {
+        name = 'Baby Yoda'
+        resolve()
+      },
+      200
+    )),
+    () => expect(name).toBe('Baby Yoda')
+  )
   await router.go('/about')
 })
