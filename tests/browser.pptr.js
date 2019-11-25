@@ -1,5 +1,5 @@
 import { test } from '@ianwalter/bff-puppeteer'
-import { go, router, HistoryRouter } from '..'
+import { go, router } from '..'
 
 test('browser go call', async ({ expect, testServerUrl }) => {
   router.add('/about', () => {
