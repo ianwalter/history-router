@@ -1,7 +1,7 @@
 import { test } from '@ianwalter/bff-puppeteer'
 import { go, router } from '..'
 
-test('browser go call', async ({ expect, testServerUrl }) => {
+test('browser go call', ({ expect, testServerUrl }) => {
   router.add('/about', () => {
     expect(window.location.href).toBe(`${testServerUrl}/about`)
   })
@@ -27,28 +27,15 @@ test('browser back', ({ pass }) => {
 })
 
 test('browser notFound', ({ fail, pass }) => {
-  return new Promise(resolve => {
-    router.add('/about', () => fail())
-    router.notFound(() => {
-      pass()
-      resolve()
-    })
-    go('/aboot')
-  })
+  router.add('/about', () => fail())
+  router.notFound(() => pass())
+  go('/aboot')
 })
 
-test('browser multiple middleware', async ({ expect }) => {
+test('browser multiple middleware', ({ expect }) => {
   let name
-  router.add(
-    '/about',
-    () => new Promise(resolve => setTimeout(
-      () => {
-        name = 'Baby Yoda'
-        resolve()
-      },
-      200
-    )),
-    () => expect(name).toBe('Baby Yoda')
-  )
-  await router.go('/about')
+  const first = (ctx, next) => (name = 'Baby Yoda') && next()
+  const second = () => expect(name).toBe('Baby Yoda')
+  router.add('/about', first, second)
+  router.go('/about')
 })
