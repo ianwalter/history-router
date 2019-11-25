@@ -1,11 +1,12 @@
 {
   "name": "@ianwalter/history-router",
+  "description": "A simple, fast router for the client-side",
   "version": "3.0.0",
   "license": "SEE LICENSE IN LICENSE",
   "main": "dist/history-router.js",
   "browser": "dist/history-router.browser.js",
   "scripts": {
-    "lint": "eslint index.js tests",
+    "lint": "eslint .",
     "pretest": "dist",
     "test": "bff"
   },
@@ -38,6 +39,9 @@
       "@ianwalter"
     ]
   },
+  "eslintIgnore": [
+    "dist"
+  ],
   "renovate": {
     "extends": [
       "@ianwalter"
