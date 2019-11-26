@@ -3,6 +3,6 @@ const { go, router } = require('..')
 
 test('node go call', ({ expect }) => {
   const url = 'http://example.com/about'
-  router.add('/about', ctx => expect(ctx.request.url).toBe(url))
+  router.add('/about', ctx => expect(ctx.url).toBe(url))
   go(url)
 })

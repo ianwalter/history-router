@@ -1,7 +1,7 @@
 import { test } from '@ianwalter/bff-puppeteer'
-import { go, router, HistoryRouter } from '..'
+import { go, router } from '..'
 
-test('browser go call', async ({ expect, testServerUrl }) => {
+test('browser go call', ({ expect, testServerUrl }) => {
   router.add('/about', () => {
     expect(window.location.href).toBe(`${testServerUrl}/about`)
   })
@@ -22,38 +22,21 @@ test('browser back', ({ pass }) => {
       resolve()
     })
     router.add('/about', () => window.history.back())
+    go('/')
     go('/about')
   })
 })
 
 test('browser notFound', ({ fail, pass }) => {
-  return new Promise(resolve => {
-    router.add('/about', () => fail())
-    router.notFound(() => {
-      pass()
-      resolve()
-    })
-    go('/aboot')
-  })
+  router.add('/about', () => fail())
+  router.notFound(() => pass())
+  go('/aboot')
 })
 
-test('browser before', async ({ expect }) => {
+test('browser multiple middleware', ({ expect }) => {
   let name
-  const router = new HistoryRouter({
-    before () {
-      return new Promise(resolve => {
-        setTimeout(
-          () => {
-            name = 'Do You Love Her Now'
-            resolve()
-          },
-          1000
-        )
-      })
-    }
-  })
-  router.add('/about', () => {
-    expect(name).toBe('Do You Love Her Now')
-  })
-  await router.go('/about')
+  const first = (ctx, next) => (name = 'Baby Yoda') && next()
+  const second = () => expect(name).toBe('Baby Yoda')
+  router.add('/about', first, second)
+  router.go('/about')
 })
