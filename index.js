@@ -7,6 +7,9 @@ export class HistoryRouter extends Router {
     // Set the router instance's base URL.
     super($window ? $window.location.origin : options.baseUrl)
 
+    // Add isClient property for end-user convenience.
+    this.isClient = $window !== undefined
+
     this.listener = async ctx => {
       // Attempt to match and call any route handler associated with the URL
       // that's being navigated to.
