@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/history-router",
   "description": "A simple, fast router for the client-side",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "license": "SEE LICENSE IN LICENSE",
   "main": "dist/history-router.js",
   "browser": "dist/history-router.browser.js",
