@@ -15,7 +15,7 @@
     "url": "https://ianwalter.dev"
   },
   "dependencies": {
-    "@ianwalter/router": "^2.0.2"
+    "@ianwalter/router": "^2.1.0"
   },
   "devDependencies": {
     "@ianwalter/bff": "^7.0.0",
