@@ -30,7 +30,8 @@ export class HistoryRouter extends Router {
   async go (url, ctx = {}) {
     if ($window) {
       // Update the browser's history with the URL that's being navigated to.
-      $window.history.pushState(ctx, ctx.title, url)
+      const evt = ctx instanceof $window.Event ? ctx : undefined
+      $window.history.pushState(evt, ctx.title, url)
       ctx.url = $window.location.href
     } else {
       ctx.url = url
