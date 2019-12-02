@@ -397,12 +397,11 @@
   dependencies:
     magic-string "^0.25.2"
 
-"@ianwalter/router@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-2.1.0.tgz#209044572502f07f33a64540caa73b51c459cc8e"
-  integrity sha512-YD+vMNYm+i9GKNPtKgbF0zSKie2CAYoaGIdC0bgFk8F7esJSi4QHHM62GFa8brWhKvTdyTgOQavFLCIGoOGJIA==
+"@ianwalter/router@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.0.0.tgz#4c0d4b5ef72766dbf8f9d0d455cde2747eb7ff0e"
+  integrity sha512-Pe++r9BI8SiCqzN/joNr3Me0uS8CFBOb3+B2tpUiBPPAzyZVF/R6b8xxPzVF3k6r6CUPOaxhFb3tf2R1ky8BuQ==
   dependencies:
-    "@ianwalter/url" "^1.1.0"
     koa-compose "^4.1.0"
 
 "@ianwalter/subpub@^2.0.0":
@@ -442,11 +441,6 @@
     "@ianwalter/merge" "^5.0.0"
     read-pkg-up "^6.0.0"
     write-pkg "^4.0.0"
-
-"@ianwalter/url@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/url/-/url-1.1.0.tgz#3a2caf69c51cca62899771cc9ca231995a168598"
-  integrity sha512-iq8vz8tWnheulmkdCWdjPipTeXGcSY8HtPuNDyZ53Ggyz19F/KKWRJUkftpirWSalAYdjTf2EAXlVppT6SxtAw==
 
 "@jest/console@^24.9.0":
   version "24.9.0"
