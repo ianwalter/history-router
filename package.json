@@ -14,6 +14,9 @@
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@ianwalter/router": "^3.0.0"
   },
