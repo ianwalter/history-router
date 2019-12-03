@@ -11,6 +11,12 @@ export class HistoryRouter extends Router {
     this.isClient = $window !== undefined
 
     this.listener = async ctx => {
+      // If ctx is a popstate event, use the state given to pushState instead of
+      // the event itself.
+      if (this.isClient) {
+        ctx = ctx instanceof $window.Event ? ctx.state : ctx
+      }
+
       // Attempt to match and call any route handler associated with the URL
       // that's being navigated to.
       return this.match(ctx, this.fallback)
