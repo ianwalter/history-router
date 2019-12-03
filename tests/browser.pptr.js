@@ -16,10 +16,14 @@ test('browser go event', ({ expect, testServerUrl }) => {
 })
 
 test('browser back', ({ pass }) => {
+  let count = 0
   return new Promise(resolve => {
     router.add('/', () => {
-      pass()
-      resolve()
+      if (count > 0) {
+        pass()
+        resolve()
+      }
+      count++
     })
     router.add('/about', () => window.history.back())
     go('/')
