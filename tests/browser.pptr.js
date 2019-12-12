@@ -1,5 +1,5 @@
 import { test } from '@ianwalter/bff-puppeteer'
-import { go, router } from '..'
+import { go, router, HistoryRouter } from '..'
 
 test('browser go call', ({ expect, testServerUrl }) => {
   router.add('/about', () => {
@@ -31,16 +31,24 @@ test('browser back', ({ pass }) => {
   })
 })
 
-test('browser notFound', ({ fail, pass }) => {
-  router.add('/about', () => fail())
-  router.notFound(() => pass())
-  go('/aboot')
-})
-
 test('browser multiple middleware', ({ expect }) => {
   let name
   const first = (ctx, next) => (name = 'Baby Yoda') && next()
   const second = () => expect(name).toBe('Baby Yoda')
   router.add('/about', first, second)
   router.go('/about')
+})
+
+test('browser notFound', ({ fail, pass }) => {
+  const router = new HistoryRouter()
+  router.add('/about', () => fail())
+  router.notFound(() => pass())
+  router.go('/aboot')
+})
+
+test.skip('browser invalid URL', ({ fail, expect }) => {
+  const router = new HistoryRouter()
+  router.add('/about', () => fail())
+  router.notFound(err => expect(err).toBeInstanceOf(Error))
+  router.go('//')
 })
