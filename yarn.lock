@@ -450,10 +450,10 @@
   dependencies:
     magic-string "^0.25.2"
 
-"@ianwalter/router@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.1.0.tgz#6f0700730e098109d0b549a5d960dab9ea6df253"
-  integrity sha512-AFQf6N0wpa99y4DJgXIyJqY8PZGWKI2jPeBwRtROxJ2do0EFE0WAYLiU1dDygt3jH1VENQieQNakMCukC4RCrw==
+"@ianwalter/router@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.1.1.tgz#5107629fcff3e1fa1ad816200bb59d1aed310f55"
+  integrity sha512-/z280tPCMqLMgMCqwZyNtHUFJ7uWG1nWhX3Xukivm7+X2vjW62VOqpOjwr+nyDDctDV3K2+EpIMsXzg5mZZ+DQ==
   dependencies:
     koa-compose "^4.1.0"
 
