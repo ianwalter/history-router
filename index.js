@@ -64,7 +64,7 @@ export const go = async (url, ctx) => {
     url.preventDefault()
 
     // Get the event target's href value and use it as the URL.
-    url = url.target.getAttribute('href')
+    url = url.target.closest('a').getAttribute('href')
   }
 
   // Perform routing through the local router instance.
