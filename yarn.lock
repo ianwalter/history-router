@@ -467,11 +467,12 @@
   dependencies:
     magic-string "^0.25.2"
 
-"@ianwalter/router@^3.1.2":
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.1.2.tgz#807cd03af6085cab2c15491289434eb6207387b1"
-  integrity sha512-X4MnatMRLmtToopaj1x1qpdjwkG0wfpL7eETmjFba8yIIujVakC7S8Vcpvn+MZ9aS4FcNdugiMaAT66pm7PdLA==
+"@ianwalter/router@^3.1.4":
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.1.4.tgz#a32402fade36c07e1a71e043f579c0d22ec351d8"
+  integrity sha512-EI2PQTMPzaPYT8XdBgZV+nZvZH9RbXrE2Ros+eZUnV6v/VOhUwbsYvQqnPbwIqWn6HrEdhGukKO/3nbK4I2DrA==
   dependencies:
+    "@ianwalter/merge" "^5.0.0"
     koa-compose "^4.1.0"
 
 "@ianwalter/subpub@^2.0.0":
