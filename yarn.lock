@@ -648,10 +648,10 @@
   dependencies:
     magic-string "^0.25.2"
 
-"@ianwalter/router@^3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.1.4.tgz#a32402fade36c07e1a71e043f579c0d22ec351d8"
-  integrity sha512-EI2PQTMPzaPYT8XdBgZV+nZvZH9RbXrE2Ros+eZUnV6v/VOhUwbsYvQqnPbwIqWn6HrEdhGukKO/3nbK4I2DrA==
+"@ianwalter/router@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.2.0.tgz#f19cc84ffacd46cac15f6400da0c8efd275561df"
+  integrity sha512-G4ZqnGqtTg6wQHhH1VFF/B1dqC2BhoThUezPulR0q+EyOkIwcuNKTdpkcI/zshiWU6qHAKgDfAfF95lvM0GUyg==
   dependencies:
     "@ianwalter/merge" "^5.0.0"
     koa-compose "^4.1.0"
