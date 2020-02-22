@@ -509,6 +509,11 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-5.0.0.tgz#972b3cd668ab87416fba1af99186cd83d34d687f"
   integrity sha512-Z+Xn8dT0ApkjGizdwMQaCgsAyHO+zKhCC2OYO7lEYLs1IdCzXtRUYah3vkIWT8/Ad94ni0rxtR39VTRWJE1/Qw==
 
+"@ianwalter/merge@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-6.0.0.tgz#7d7facccc86fb407571c78de00a0bd2adca395cb"
+  integrity sha512-Ohskh/vqQFgW2Abaxd3kPYz/uNqoUmCSjU8kB8SoRieQqIOyXit1pFKYW4HmcoRcDFbktpWmS1QpIBoF74DGBg==
+
 "@ianwalter/npm-short-name@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/npm-short-name/-/npm-short-name-1.0.0.tgz#1ff8fcf73a20841e8fa13af77957a01c6e2329e8"
@@ -649,12 +654,12 @@
   dependencies:
     magic-string "^0.25.2"
 
-"@ianwalter/router@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.2.0.tgz#f19cc84ffacd46cac15f6400da0c8efd275561df"
-  integrity sha512-G4ZqnGqtTg6wQHhH1VFF/B1dqC2BhoThUezPulR0q+EyOkIwcuNKTdpkcI/zshiWU6qHAKgDfAfF95lvM0GUyg==
+"@ianwalter/router@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.3.0.tgz#01238bac61b7a8700b4748ba425732f27c85154e"
+  integrity sha512-R7UMduly07w5DdRE++8rJkA5dHbHN6ugZnD2lTXpiMIwYMILEDyz85I++r1vwxgmVBAJxkkjjKYFshL6qbh6zw==
   dependencies:
-    "@ianwalter/merge" "^5.0.0"
+    "@ianwalter/merge" "^6.0.0"
     koa-compose "^4.1.0"
 
 "@ianwalter/subpub@^2.0.0":
