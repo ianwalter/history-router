@@ -18,7 +18,7 @@
     "dist"
   ],
   "dependencies": {
-    "@ianwalter/router": "^3.2.0"
+    "@ianwalter/router": "^3.3.0"
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.5.0",
