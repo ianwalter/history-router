@@ -4,6 +4,7 @@
   "version": "5.3.0",
   "license": "SEE LICENSE IN LICENSE",
   "main": "dist/history-router.js",
+  "module": "dist/history-router.m.js",
   "browser": "dist/history-router.browser.js",
   "scripts": {
     "lint": "eslint .",
