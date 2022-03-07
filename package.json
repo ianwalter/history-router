@@ -22,8 +22,8 @@
     "@ianwalter/router": "^3.3.0"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^9.9.1",
-    "@ianwalter/bff-puppeteer": "^1.4.0",
+    "@ianwalter/bff": "^11.2.2",
+    "@ianwalter/bff-puppeteer": "^3.0.1",
     "@ianwalter/dist": "^6.0.0",
     "@ianwalter/eslint-config": "^6.2.0",
     "@ianwalter/release": "^5.0.2",
